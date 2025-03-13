@@ -53,6 +53,8 @@ app.get("/check-slot", (req, res) => {
 app.post("/book-slot", (req, res) => {
   const { userId, date, time } = req.query;
   const {body} = req.body;
+  console.log(req);
+  
   console.log("body",body);
   if (!userId || !date || !time) {
     console.log("User id", userId);
