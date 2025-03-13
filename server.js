@@ -8,10 +8,6 @@ const PORT = 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.setHeader("ngrok-skip-browser-warning", true);
-  next();
-});
 
 // Dummy database to store booked slots
 let bookedSlots = [];
@@ -25,7 +21,7 @@ app.get("/check-slot", (req, res) => {
 
   const { date, time } = req.query;
   const {body} = req.body;
-  console.log({body});
+  console.log("body",body);
   
 
   if (!date || !time) {
@@ -54,9 +50,10 @@ app.get("/check-slot", (req, res) => {
 /**
  * Book a slot
  */
-app.get("/book-slot", (req, res) => {
+app.post("/book-slot", (req, res) => {
   const { userId, date, time } = req.query;
-
+  const {body} = req.body;
+  console.log("body",body);
   if (!userId || !date || !time) {
     console.log("User id", userId);
     console.log("date", date);
