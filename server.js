@@ -47,7 +47,7 @@ app.get("/check-slot", (req, res) => {
 
   res.status(200).json({
     status: !isBooked,
-    message: !isBooked ? "Slot is already booked." : "Slot is available.",
+    message: isBooked ? "Slot is already booked." : "Slot is available.",
   });
 });
 
