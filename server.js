@@ -3,6 +3,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
+app.use(express.json()); // For JSON payloads
+app.use(express.urlencoded({ extended: true })); // For URL-encoded payloads
 const PORT = 3000;
 
 // Middleware
